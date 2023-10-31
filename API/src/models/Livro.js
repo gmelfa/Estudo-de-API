@@ -8,8 +8,11 @@ const livroSchema = new mongoose.Schema({
   },
   editora: { type: String },
   preco: { type: Number },
-  paginas: { type: Number },
-  autor: { type: String, 
+  paginas: { type: Number, 
+    min: [10, "o nomero de paginas deve estar entre 10 e 5000"],
+    max: [5000, "o nomero de paginas deve estar entre 10 e 5000"]
+  },
+  autor: { type: String,
     required: [true, "O nome do(a) autor(a) e necessario"]
   }
 }, { versionKey: false});
